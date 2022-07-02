@@ -1,10 +1,15 @@
+import { LandingPageComponent } from './layouts/landing-page/landing-page.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { HeaderComponent } from './layouts/header/header.component';
 import { Component } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient} from '@angular/common/http'
 
 @Component({
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
+  imports: [HeaderComponent, FooterComponent, LandingPageComponent, ],
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
@@ -14,18 +19,12 @@ export class AppComponent {
     { source: './../assets/images/bg.jpg' },
   ];
 
-  constructor(config: NgbCarouselConfig, private httpClient: HttpClient) {
+  constructor(config: NgbCarouselConfig) {
     // customize default values of carousels used by this component tree
     config.interval = 10000;
     config.wrap = false;
     config.keyboard = false;
     config.pauseOnHover = false;
   }
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.httpClient.get('https://soumyasidharth.pythonanywhere.com/name').subscribe((res: any) => {
-      console.log(res);
-    })
-  }
+  ngOnInit(): void {}
 }
