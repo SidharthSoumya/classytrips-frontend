@@ -1,15 +1,16 @@
+import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './layouts/landing-page/landing-page.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { Component } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient} from '@angular/common/http'
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [HeaderComponent, FooterComponent, LandingPageComponent, ],
+  imports: [HeaderComponent, FooterComponent, LandingPageComponent, AppRoutingModule],
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
@@ -19,12 +20,9 @@ export class AppComponent {
     { source: './../assets/images/bg.jpg' },
   ];
 
-  constructor(config: NgbCarouselConfig) {
-    // customize default values of carousels used by this component tree
-    config.interval = 10000;
-    config.wrap = false;
-    config.keyboard = false;
-    config.pauseOnHover = false;
+  constructor(private router: Router) {
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.navigate(['/landing'])
+  }
 }
