@@ -6,9 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes = [
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   {
-    path: 'landing',
+    path: '',
     loadComponent: () =>
       import('./app/layouts/landing-page/landing-page.component').then(
         ({ LandingPageComponent }) => LandingPageComponent
