@@ -30,6 +30,9 @@
     .header-logo img {
       display: block;
       height: calc(70px - 10px);
+      @media (max-width: 500px) {
+        height: 40px;
+      }
     }
 
     .header-navigation {
@@ -45,6 +48,12 @@
         i {
           font-size: 20px;
           vertical-align: middle;
+          @media (max-width: 500px) {
+            font-size: 16px;
+          }
+        }
+        @media (max-width: 500px) {
+          padding: 10px 15px;
         }
       }
 
