@@ -1,16 +1,36 @@
 import { AppComponent } from './app/app.component';
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+const routes = [
+  {
+    path: '',
+    loadComponent: () =>
+      import('./app/layouts/landing-page/landing-page.component').then(
+        ({ LandingPageComponent }) => LandingPageComponent
+      ),
+  },
+  {
+    path: 'services',
+    loadComponent: () =>
+      import('./app/layouts/our-services/our-services.component').then(
+        ({ OurServicesComponent }) => OurServicesComponent
+      ),
+  },
+] as Routes;
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
-bootstrapApplication(AppComponent);
+bootstrapApplication(AppComponent, {
+  providers: [
+    importProvidersFrom([
+      BrowserAnimationsModule,
+      RouterModule.forRoot(routes),
+    ]),
+  ],
+});
