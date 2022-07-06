@@ -13,4 +13,9 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public openSocial = (type: string) => {
+    if (type === 'fb') window.open('https://www.facebook.com/ClassyTripsin-101760119105202');
+    if (type === 'ig') window.open('https://www.instagram.com/classytrips.in/');
+  }
+
 }

@@ -2,18 +2,20 @@
   display: block;
   position: relative;
   height: 100vh;
-  background: url('./../../../assets/images/bg_1.webp');
+  background: url('./../../../assets/images/bg_1.webp') no-repeat center center fixed;
   max-width: 100vw;
   background-size: cover;
   margin-top: -70px;
+
   @media (max-width: 500px) {
-    background: url('./../../../assets/images/bg-small.jpg') no-repeat center right fixed;
+    background: url('./../../../assets/images/bg_small.jpg') no-repeat center center fixed;
     background-size: cover;
   }
+
   .bio-block {
     display: block;
     position: relative;
-    padding-top: 160px;
+    padding-top: 120px;
     text-align: center;
     width: 100vw;
     margin: 0 auto;
@@ -22,31 +24,89 @@
       display: block;
       position: relative;
       color: #00095e;
-      font-size: 30px;
+      font-size: 26px;
       font-weight: 700;
-      max-width: 760px;
+      max-width: 45vw;
       margin: 0 auto;
+      line-height: 46px;
+
       .emp {
-        font-size: 30px;
+        font-size: 26px;
         color: #2700ff;
 
         @media (max-width: 500px) {
-          font-size: 14px;
+          font-size: 22px;
         }
       }
 
       .emp-1 {
-        font-size: 46px;
+        font-size: 26px;
         color: #fffb00;
 
         @media (max-width: 500px) {
-          font-size: 18px;
+          font-size: 26px;
         }
       }
 
       @media (max-width: 500px) {
-        font-size: 14px;
-        max-width: 80%;
+        font-size: 22px;
+        max-width: 90vw;
+        line-height: 26px;
+      }
+    }
+
+    .book-text {
+      display: block;
+      position: relative;
+      margin: 40px auto 0;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 5px 5px;
+      background-color: #128194;
+      border-radius: 10px;
+      max-width: 30vw;
+
+      @media (max-width: 500px) {
+        font-size: 16px;
+        max-width: 70vw;
+      }
+    }
+
+    .social-block {
+      position: relative;
+      margin: 5px auto;
+      max-width: 30vw;
+      justify-content: end;
+
+      .social-btn {
+        display: block;
+        position: relative;
+        margin-left: 5px;
+        height: 40px;
+        width: 100px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background: linear-gradient(180deg, #72a9b7, #02a1bb);
+        border-radius: 30px;
+        padding: 0px;
+
+        .social-icon {
+          height: 40px;
+          width: 40px;
+
+          &:first-child {
+            border-right: 3px solid #fff;
+          }
+        }
+
+        @media (max-width: 500px) {
+          // background: linear-gradient(180deg, #eedf93, #efea46);
+        }
+      }
+
+      @media (max-width: 500px) {
+        max-width: 70vw;
       }
     }
   }
